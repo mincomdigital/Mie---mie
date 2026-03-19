@@ -44,8 +44,8 @@ if (themeToggleButtons.length) {
   const detectTheme = () => {
     const storedTheme = getStoredTheme();
     if (storedTheme === "light" || storedTheme === "dark") return storedTheme;
-    const hasMatchMedia = typeof window.matchMedia === "function";
-    return hasMatchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    // Choix produit: demarrage en sombre tant qu'aucune preference n'est enregistree.
+    return "dark";
   };
 
   const updateToggleLabels = (theme) => {
