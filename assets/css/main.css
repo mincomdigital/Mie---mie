@@ -31,13 +31,7 @@ body {
 
 body {
   font-family: "Outfit", sans-serif;
-  background: repeating-linear-gradient(
-    180deg,
-    #000000 0px,
-    #000000 78px,
-    #ffffff 78px,
-    #ffffff 88px
-  );
+  background: linear-gradient(180deg, #050506 0%, #0b0d11 48%, #06070a 100%);
   background-attachment: fixed;
   color: var(--text);
   line-height: 1.6;
@@ -59,13 +53,7 @@ body[data-theme="light"] {
   --success: #2f3c4f;
   --focus: #111827;
   --shadow: 0 12px 26px rgba(0, 0, 0, 0.1);
-  background: repeating-linear-gradient(
-    180deg,
-    #ffffff 0px,
-    #ffffff 92px,
-    #111111 92px,
-    #111111 98px
-  );
+  background: linear-gradient(180deg, #ffffff 0%, #f1f4f8 48%, #f8fafd 100%);
 }
 
 .menu-showcase {
@@ -74,7 +62,6 @@ body[data-theme="light"] {
   --menu-line: rgba(255, 255, 255, 0.24);
   background:
     radial-gradient(circle at 50% 16%, rgba(242, 202, 34, 0.16), transparent 34%),
-    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0 2px, transparent 2px 8px),
     linear-gradient(180deg, #030303 0%, #0b0c10 45%, #040507 100%);
   background-attachment: fixed;
 }
@@ -85,7 +72,6 @@ body[data-theme="light"].menu-showcase {
   --menu-line: rgba(0, 0, 0, 0.16);
   background:
     radial-gradient(circle at 50% 16%, rgba(199, 159, 20, 0.2), transparent 34%),
-    repeating-linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0 2px, transparent 2px 8px),
     linear-gradient(180deg, #f7f8fa 0%, #eceff3 45%, #f5f6f8 100%);
 }
 
