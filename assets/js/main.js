@@ -53,6 +53,94 @@ if (yearElement) {
   yearElement.textContent = String(new Date().getFullYear());
 }
 
+document.querySelectorAll("[data-carousel]").forEach((carousel) => {
+  const viewport = carousel.querySelector("[data-carousel-viewport]");
+  const prevButton = carousel.querySelector("[data-carousel-prev]");
+  const nextButton = carousel.querySelector("[data-carousel-next]");
+  const dotsContainer = carousel.querySelector("[data-carousel-dots]");
+  if (!viewport) return;
+
+  const slides = Array.from(viewport.querySelectorAll(".carousel-slide"));
+  if (slides.length < 2) return;
+
+  const dots = [];
+  let currentIndex = 0;
+  let isTicking = false;
+
+  const normalizeIndex = (value) => ((value % slides.length) + slides.length) % slides.length;
+  const getGap = () => {
+    const style = window.getComputedStyle(viewport);
+    return Number.parseFloat(style.columnGap || style.gap || "0") || 0;
+  };
+
+  const updateDots = () => {
+    dots.forEach((dot, index) => {
+      const isActive = index === currentIndex;
+      dot.classList.toggle("active", isActive);
+      dot.setAttribute("aria-current", isActive ? "true" : "false");
+    });
+  };
+
+  // Fait defiler jusqu'a l'image cible en conservant une navigation circulaire.
+  const goToSlide = (index, behavior = "smooth") => {
+    currentIndex = normalizeIndex(index);
+    const target = slides[currentIndex];
+    viewport.scrollTo({
+      left: target.offsetLeft,
+      behavior
+    });
+    updateDots();
+  };
+
+  const syncFromScroll = () => {
+    const slideWidth = slides[0].getBoundingClientRect().width;
+    const unit = slideWidth + getGap();
+    if (unit <= 0) return;
+    const nextIndex = normalizeIndex(Math.round(viewport.scrollLeft / unit));
+    if (nextIndex !== currentIndex) {
+      currentIndex = nextIndex;
+      updateDots();
+    }
+    isTicking = false;
+  };
+
+  if (dotsContainer) {
+    slides.forEach((_, index) => {
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "carousel-dot";
+      dot.setAttribute("aria-label", `Aller a l image ${index + 1}`);
+      dot.setAttribute("aria-current", index === 0 ? "true" : "false");
+      dot.addEventListener("click", () => goToSlide(index));
+      dotsContainer.appendChild(dot);
+      dots.push(dot);
+    });
+    updateDots();
+  }
+
+  prevButton?.addEventListener("click", () => goToSlide(currentIndex - 1));
+  nextButton?.addEventListener("click", () => goToSlide(currentIndex + 1));
+
+  viewport.addEventListener("scroll", () => {
+    if (isTicking) return;
+    window.requestAnimationFrame(syncFromScroll);
+    isTicking = true;
+  }, { passive: true });
+
+  // Autorise la navigation clavier quand le carrousel est focalise.
+  viewport.setAttribute("tabindex", "0");
+  viewport.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      goToSlide(currentIndex - 1);
+    }
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      goToSlide(currentIndex + 1);
+    }
+  });
+});
+
 document.querySelectorAll(".faq-item").forEach((item) => {
   const button = item.querySelector(".faq-toggle");
   const content = item.querySelector(".faq-content");
