@@ -646,6 +646,39 @@ p {
   border-bottom-color: var(--accent);
 }
 
+.damier-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.8rem;
+}
+
+.damier-card {
+  border: 1px solid #ffffff;
+  border-radius: var(--radius-md);
+  background: #000000;
+  color: #ffffff;
+  padding: 1rem;
+  min-height: 132px;
+  box-shadow: none;
+}
+
+.damier-card:nth-child(even) {
+  background: #ffffff;
+  color: #070707;
+  border-color: #070707;
+}
+
+.damier-card h3 {
+  color: currentColor;
+  margin-bottom: 0.42rem;
+}
+
+.damier-card p {
+  margin: 0;
+  color: currentColor;
+  opacity: 0.9;
+}
+
 .faq-list {
   display: grid;
   gap: 0.7rem;
@@ -830,6 +863,10 @@ p {
   .price-grid,
   .photo-strip {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .damier-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .blog-feed {
