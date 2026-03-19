@@ -31,13 +31,18 @@ body {
 
 body {
   font-family: "Outfit", sans-serif;
-  background: repeating-linear-gradient(
+  background: linear-gradient(
     180deg,
-    #050505 0px,
-    #050505 120px,
-    #ffffff 120px,
-    #ffffff 123px
+    #000000 0%,
+    #000000 25%,
+    #ffffff 25%,
+    #ffffff 50%,
+    #000000 50%,
+    #000000 75%,
+    #ffffff 75%,
+    #ffffff 100%
   );
+  background-attachment: fixed;
   color: var(--text);
   line-height: 1.6;
   overflow-x: hidden;
