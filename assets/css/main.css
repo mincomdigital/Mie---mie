@@ -31,16 +31,12 @@ body {
 
 body {
   font-family: "Outfit", sans-serif;
-  background: linear-gradient(
+  background: repeating-linear-gradient(
     180deg,
-    #000000 0%,
-    #000000 25%,
-    #ffffff 25%,
-    #ffffff 50%,
-    #000000 50%,
-    #000000 75%,
-    #ffffff 75%,
-    #ffffff 100%
+    #000000 0px,
+    #000000 78px,
+    #ffffff 78px,
+    #ffffff 88px
   );
   background-attachment: fixed;
   color: var(--text);
