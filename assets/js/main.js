@@ -58,16 +58,22 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
   const prevButton = carousel.querySelector("[data-carousel-prev]");
   const nextButton = carousel.querySelector("[data-carousel-next]");
   const dotsContainer = carousel.querySelector("[data-carousel-dots]");
+  const statusElement = carousel.querySelector("[data-carousel-status]");
   if (!viewport) return;
 
   const slides = Array.from(viewport.querySelectorAll(".carousel-slide"));
   if (slides.length < 2) return;
 
+  const thumbButtons = Array.from(carousel.querySelectorAll("[data-carousel-go]"));
   const dots = [];
   let currentIndex = 0;
   let isTicking = false;
+  let autoplayTimer = null;
 
   const normalizeIndex = (value) => ((value % slides.length) + slides.length) % slides.length;
+  const prefersReducedMotion = typeof window.matchMedia === "function"
+    && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const canAutoplay = carousel.dataset.carouselAutoplay === "true" && !prefersReducedMotion;
   const getGap = () => {
     const style = window.getComputedStyle(viewport);
     return Number.parseFloat(style.columnGap || style.gap || "0") || 0;
@@ -81,6 +87,19 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
     });
   };
 
+  const updateStatus = () => {
+    if (!statusElement) return;
+    statusElement.textContent = `${currentIndex + 1} / ${slides.length}`;
+  };
+
+  const updateThumbs = () => {
+    thumbButtons.forEach((thumb, index) => {
+      const isActive = index === currentIndex;
+      thumb.classList.toggle("active", isActive);
+      thumb.setAttribute("aria-current", isActive ? "true" : "false");
+    });
+  };
+
   // Fait defiler jusqu'a l'image cible en conservant une navigation circulaire.
   const goToSlide = (index, behavior = "smooth") => {
     currentIndex = normalizeIndex(index);
@@ -90,6 +109,8 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
       behavior
     });
     updateDots();
+    updateStatus();
+    updateThumbs();
   };
 
   const syncFromScroll = () => {
@@ -100,8 +121,23 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
     if (nextIndex !== currentIndex) {
       currentIndex = nextIndex;
       updateDots();
+      updateStatus();
+      updateThumbs();
     }
     isTicking = false;
+  };
+
+  const stopAutoplay = () => {
+    if (!autoplayTimer) return;
+    clearInterval(autoplayTimer);
+    autoplayTimer = null;
+  };
+
+  const startAutoplay = () => {
+    if (!canAutoplay || autoplayTimer) return;
+    autoplayTimer = window.setInterval(() => {
+      goToSlide(currentIndex + 1);
+    }, 5000);
   };
 
   if (dotsContainer) {
@@ -117,6 +153,15 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
     });
     updateDots();
   }
+
+  if (thumbButtons.length) {
+    thumbButtons.forEach((thumb, index) => {
+      thumb.addEventListener("click", () => goToSlide(index));
+    });
+    updateThumbs();
+  }
+
+  updateStatus();
 
   prevButton?.addEventListener("click", () => goToSlide(currentIndex - 1));
   nextButton?.addEventListener("click", () => goToSlide(currentIndex + 1));
@@ -139,6 +184,28 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
       goToSlide(currentIndex + 1);
     }
   });
+
+  if (canAutoplay) {
+    startAutoplay();
+
+    carousel.addEventListener("mouseenter", stopAutoplay);
+    carousel.addEventListener("mouseleave", startAutoplay);
+    carousel.addEventListener("focusin", stopAutoplay);
+    carousel.addEventListener("focusout", () => {
+      if (carousel.contains(document.activeElement)) return;
+      startAutoplay();
+    });
+    carousel.addEventListener("touchstart", stopAutoplay, { passive: true });
+    carousel.addEventListener("touchend", startAutoplay, { passive: true });
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        stopAutoplay();
+      } else {
+        startAutoplay();
+      }
+    });
+  }
 });
 
 document.querySelectorAll(".faq-item").forEach((item) => {

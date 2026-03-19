@@ -168,10 +168,11 @@
           <p>Faites glisser pour voir les visuels du restaurant.</p>
         </div>
 
-        <div class="media-carousel media-carousel-compact reveal" data-carousel>
+        <div class="media-carousel media-carousel-compact reveal" data-carousel data-carousel-autoplay="true">
           <div class="carousel-controls">
-            <button class="carousel-btn" type="button" data-carousel-prev aria-label="Image precedente">Precedent</button>
-            <button class="carousel-btn" type="button" data-carousel-next aria-label="Image suivante">Suivant</button>
+            <button class="carousel-btn" type="button" data-carousel-prev aria-label="Image precedente">‹</button>
+            <p class="carousel-status" data-carousel-status aria-live="polite"></p>
+            <button class="carousel-btn" type="button" data-carousel-next aria-label="Image suivante">›</button>
           </div>
 
           <div class="carousel-viewport" data-carousel-viewport>
@@ -191,6 +192,20 @@
               <img src="assets/img/mie-a-mie-facade-cropped.jpg" alt="Facade Mie a Mie" width="1024" height="631" loading="lazy">
               <figcaption class="carousel-caption">Facade Mie a Mie rue de l Hopital</figcaption>
             </figure>
+          </div>
+          <div class="carousel-thumbs" data-carousel-thumbs>
+            <button class="carousel-thumb" type="button" data-carousel-go="0" aria-label="Voir le wrap">
+              <img src="assets/img/mie-a-mie-wrap.jpg" alt="" width="1024" height="735" loading="lazy">
+            </button>
+            <button class="carousel-thumb" type="button" data-carousel-go="1" aria-label="Voir le sandwich">
+              <img src="assets/img/mie-a-mie-sandwich-outdoor.jpg" alt="" width="1365" height="2048" loading="lazy">
+            </button>
+            <button class="carousel-thumb" type="button" data-carousel-go="2" aria-label="Voir la terrasse">
+              <img src="assets/img/mie-a-mie-terrasse.jpg" alt="" width="1024" height="686" loading="lazy">
+            </button>
+            <button class="carousel-thumb" type="button" data-carousel-go="3" aria-label="Voir la facade">
+              <img src="assets/img/mie-a-mie-facade-cropped.jpg" alt="" width="1024" height="631" loading="lazy">
+            </button>
           </div>
 
           <div class="carousel-dots" data-carousel-dots></div>

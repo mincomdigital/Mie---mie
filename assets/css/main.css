@@ -571,31 +571,43 @@ p {
 }
 
 .media-carousel-compact {
-  width: min(100%, 460px);
+  width: min(100%, 390px);
   margin-inline: auto;
-  padding: 0.45rem;
+  padding: 0.4rem;
 }
 
 .carousel-controls {
   display: flex;
-  justify-content: flex-end;
-  gap: 0.5rem;
-  margin-bottom: 0.65rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.45rem;
+  margin-bottom: 0.45rem;
 }
 
 .carousel-btn {
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.03);
   color: var(--text);
-  border-radius: 999px;
-  padding: 0.45rem 0.75rem;
-  font-size: 0.78rem;
+  border-radius: 10px;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  font-size: 1.2rem;
+  line-height: 1;
   font-weight: 700;
   cursor: pointer;
 }
 
 .carousel-btn:hover {
   border-color: var(--accent);
+}
+
+.carousel-status {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  font-weight: 700;
 }
 
 .carousel-viewport {
@@ -632,8 +644,41 @@ p {
 .carousel-caption {
   margin: 0;
   color: var(--muted);
-  font-size: 0.83rem;
-  padding: 0.55rem 0.75rem 0.7rem;
+  font-size: 0.78rem;
+  padding: 0.45rem 0.62rem 0.56rem;
+}
+
+.carousel-thumbs {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 56px;
+  gap: 0.42rem;
+  overflow-x: auto;
+  padding: 0.4rem 0 0.2rem;
+  scrollbar-width: none;
+}
+
+.carousel-thumbs::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-thumb {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0;
+  overflow: hidden;
+  background: #0d121a;
+  cursor: pointer;
+}
+
+.carousel-thumb img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.carousel-thumb.active {
+  border-color: var(--accent);
 }
 
 .carousel-dots {
@@ -766,7 +811,8 @@ p {
 .icon-link:focus-visible,
 .faq-toggle:focus-visible,
 .carousel-btn:focus-visible,
-.carousel-dot:focus-visible {
+.carousel-dot:focus-visible,
+.carousel-thumb:focus-visible {
   outline: 2px solid var(--focus);
   outline-offset: 2px;
 }
@@ -811,6 +857,10 @@ p {
 
   .menu-prices {
     grid-auto-columns: minmax(68%, 1fr);
+  }
+
+  .media-carousel-compact {
+    width: min(100%, 420px);
   }
 
   .icon-link {
@@ -859,6 +909,10 @@ p {
 
   .hero-strip {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .media-carousel-compact {
+    width: min(100%, 440px);
   }
 }
 
