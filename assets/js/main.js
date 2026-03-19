@@ -29,6 +29,58 @@ const setActiveNavLink = () => {
 
 setActiveNavLink();
 
+const themeToggleButtons = document.querySelectorAll("[data-theme-toggle]");
+if (themeToggleButtons.length) {
+  const themeStorageKey = "mie-a-mie-theme";
+
+  const getStoredTheme = () => {
+    try {
+      return localStorage.getItem(themeStorageKey);
+    } catch (_error) {
+      return null;
+    }
+  };
+
+  const detectTheme = () => {
+    const storedTheme = getStoredTheme();
+    if (storedTheme === "light" || storedTheme === "dark") return storedTheme;
+    const hasMatchMedia = typeof window.matchMedia === "function";
+    return hasMatchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  };
+
+  const updateToggleLabels = (theme) => {
+    const toLight = theme === "dark";
+    themeToggleButtons.forEach((button) => {
+      const label = button.querySelector("[data-theme-toggle-label]");
+      if (label) label.textContent = toLight ? "Mode jour" : "Mode sombre";
+      button.setAttribute("aria-label", toLight ? "Activer le mode jour" : "Activer le mode sombre");
+    });
+  };
+
+  const applyTheme = (theme) => {
+    document.body.dataset.theme = theme;
+    updateToggleLabels(theme);
+  };
+
+  const saveTheme = (theme) => {
+    try {
+      localStorage.setItem(themeStorageKey, theme);
+    } catch (_error) {
+      // Ignore localStorage write errors.
+    }
+  };
+
+  applyTheme(detectTheme());
+
+  themeToggleButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const nextTheme = document.body.dataset.theme === "dark" ? "light" : "dark";
+      applyTheme(nextTheme);
+      saveTheme(nextTheme);
+    });
+  });
+}
+
 const revealElements = document.querySelectorAll(".reveal");
 if ("IntersectionObserver" in window && revealElements.length) {
   // Revele les blocs au scroll pour un rendu plus progressif.
