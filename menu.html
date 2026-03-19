@@ -3,49 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0d12">
   <title>Menu | Mie a Mie Rouen</title>
   <meta name="description" content="Menu Mie a Mie Rouen: bases, proteines, crudites, fromages, sauces, feculents et toppings avec tarifs indicatifs.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Menu | Mie a Mie Rouen">
   <meta property="og:description" content="Composez votre plat a Rouen selon vos envies.">
-  <meta property="og:image" content="assets/img/menu-board.svg">
+  <meta property="og:image" content="assets/img/mie-a-mie-sandwich-closeup.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
   <header class="site-header">
-    <div class="container nav-shell">
-      <a class="brand" href="index.html" aria-label="Mie a Mie accueil">
-        <span class="brand-mark">M</span>
+  <div class="container app-topbar">
+    <a class="brand" href="index.html" aria-label="Mie a Mie accueil">
+      <img class="brand-logo" src="assets/img/logo-mie-a-mie.png" alt="Logo Mie a Mie" width="64" height="64">
+      <span class="brand-text-wrap">
         <span class="brand-text">Mie a Mie Rouen</span>
-      </a>
+        <span class="brand-sub">Street food composee</span>
+      </span>
+    </a>
 
+    <div class="topbar-actions">
+      <a class="btn btn-primary compact" href="https://www.ubereats.com/fr-en/store/mie-a-mie/2T7UGu6HS8WA2FnkQ4u_hw" target="_blank" rel="noopener noreferrer" data-track="cta_ubereats_click">Commander</a>
       <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Ouvrir le menu">
         <span></span><span></span><span></span>
       </button>
-
-      <nav id="site-nav" class="site-nav">
-        <a href="index.html">Accueil</a>
-        <a href="menu.html">Menu</a>
-        <a href="a-propos.html">A propos</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-
-      <a class="btn btn-primary header-cta" href="https://www.ubereats.com/fr-en/store/mie-a-mie/2T7UGu6HS8WA2FnkQ4u_hw" target="_blank" rel="noopener noreferrer" data-track="cta_ubereats_click">Commander</a>
     </div>
-  </header>
+  </div>
+
+  <div class="container">
+    <nav id="site-nav" class="site-nav" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="menu.html">Menu</a>
+      <a href="a-propos.html">A propos</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<nav class="mobile-tabbar" aria-label="Navigation mobile">
+  <a href="index.html">Accueil</a>
+  <a href="menu.html">Menu</a>
+  <a href="contact.html">Contact</a>
+</nav>
 
 
   <main>
     <section class="page-hero">
       <div class="container page-hero-shell">
         <div class="reveal">
-          <p class="kicker">Composez votre plat</p>
-          <h1>Menu de composition Mie a Mie Rouen</h1>
+          <p class="kicker">Menu compose</p>
+          <h1>Construisez votre assiette</h1>
           <p>
-            Choisissez une base puis completez avec proteines, crudites, fromages,
-            sauces, feculents et toppings. Les tarifs ci-dessous sont indicatifs.
+            Selectionnez votre base puis ajoutez vos ingredients.
+            Les prix affiches sont indicatifs et peuvent varier selon le canal de commande.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://www.ubereats.com/fr-en/store/mie-a-mie/2T7UGu6HS8WA2FnkQ4u_hw" target="_blank" rel="noopener noreferrer" data-track="cta_ubereats_click">Uber Eats</a>
@@ -53,7 +66,7 @@
           </div>
         </div>
         <figure class="page-hero-image reveal delay-1">
-          <img src="assets/img/menu-board.svg" alt="Tableau menu placeholder" width="1200" height="800" loading="lazy">
+          <img src="assets/img/mie-a-mie-sandwich-closeup.jpg" alt="Sandwich Mie a Mie" width="1024" height="714">
         </figure>
       </div>
     </section>
@@ -62,7 +75,7 @@
       <div class="container">
         <div class="section-head reveal">
           <p class="kicker">Tarifs indicatifs</p>
-          <h2>Formules populaires</h2>
+          <h2>Formules du moment</h2>
         </div>
         <div class="price-grid">
           <article class="price-card reveal">
@@ -100,7 +113,6 @@
             <li>Salade</li>
           </ul>
         </article>
-
         <article class="menu-block reveal delay-1">
           <h3>Proteines</h3>
           <ul class="menu-list">
@@ -108,117 +120,96 @@
             <li>Poulet nature</li>
             <li>Poulet epice</li>
             <li>Poulet curry</li>
-            <li>Jambon blanc</li>
-            <li>Jambon fume</li>
+            <li>Jambon blanc, jambon fume</li>
             <li>Viande hachee (+1 EUR)</li>
           </ul>
         </article>
-
         <article class="menu-block reveal delay-2">
           <h3>Crudites</h3>
           <ul class="menu-list">
             <li>Laitue, mesclun, coleslaw</li>
-            <li>Tartare de tomates, brocolis, choux</li>
-            <li>Carottes rapees, mais, poivrons confits</li>
-            <li>Concombres, champignons, edamames</li>
-            <li>Pomme de terre, avocat (+1 EUR)</li>
+            <li>Tomates, brocolis, choux</li>
+            <li>Mais, concombre, champignons</li>
+            <li>Edamames, avocat (+1 EUR)</li>
           </ul>
         </article>
-
         <article class="menu-block reveal">
           <h3>Fromages</h3>
           <ul class="menu-list">
-            <li>Cheddar</li>
-            <li>Emmental</li>
-            <li>Camembert</li>
-            <li>Parmesan</li>
-            <li>Chevre</li>
-            <li>Mozzarella</li>
-            <li>Feta</li>
+            <li>Cheddar, emmental, camembert</li>
+            <li>Parmesan, chevre, mozzarella, feta</li>
           </ul>
         </article>
-
         <article class="menu-block reveal delay-1">
           <h3>Sauces</h3>
           <ul class="menu-list">
             <li>Mayonnaise, ketchup, curry</li>
             <li>Andalouse, miel moutarde, caesar</li>
-            <li>Vinaigrette, barbecue, pita, algerienne</li>
-            <li>Burger, pesto, samourai, blanche</li>
+            <li>Barbecue, pesto, samourai, blanche</li>
             <li>Guacamole (+1 EUR)</li>
           </ul>
         </article>
-
         <article class="menu-block reveal delay-2">
           <h3>Feculents et toppings</h3>
           <ul class="menu-list">
             <li>Pates, riz, quinoa</li>
-            <li>Cornichons, croutons, noix</li>
-            <li>Olives, oignons rouges</li>
-            <li>Oignons frits, oignons caramelises</li>
+            <li>Cornichons, croutons, noix, olives</li>
+            <li>Oignons rouges, frits, caramelises</li>
           </ul>
         </article>
       </div>
     </section>
 
     <section class="section-pad">
-      <div class="container">
-        <article class="cta-banner reveal">
-          <div>
-            <p class="kicker">Source officielle</p>
-            <h2>Verifier le menu complet</h2>
-            <p>Pour les details a jour, consultez le menu PDF officiel.</p>
-          </div>
-          <div class="icon-links">
-            <a class="icon-link" href="https://mie-a-mie.fr/wp-content/uploads/2023/05/Menu.pdf" target="_blank" rel="noopener noreferrer">
-              <span class="label">Ouvrir le menu PDF</span>
-              <span class="hint">Site officiel</span>
-            </a>
-            <a class="icon-link" href="tel:+33235070183" data-track="cta_call_click">
-              <span class="label">Confirmer par telephone</span>
-              <span class="hint">02 35 07 01 83</span>
-            </a>
-          </div>
-        </article>
-        <p class="meta-note reveal">Prix indicatifs: les plateformes de livraison peuvent appliquer des tarifs differents.</p>
+      <div class="container photo-strip reveal">
+        <img src="assets/img/mie-a-mie-wrap.jpg" alt="Wrap Mie a Mie" width="1024" height="735" loading="lazy">
+        <img src="assets/img/mie-a-mie-sandwich-outdoor.jpg" alt="Sandwich Mie a Mie exterieur" width="1365" height="2048" loading="lazy">
+        <img src="assets/img/mie-a-mie-terrasse.jpg" alt="Terrasse Mie a Mie" width="1024" height="686" loading="lazy">
       </div>
+      <p class="meta-note reveal">Pour la version complete, consultez le PDF officiel du menu.</p>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="footer-col">
-        <a class="brand" href="index.html">
-          <span class="brand-mark">M</span>
+  <div class="container footer-grid">
+    <div class="footer-col">
+      <a class="brand" href="index.html" aria-label="Mie a Mie accueil">
+        <img class="brand-logo" src="assets/img/logo-mie-a-mie.png" alt="Logo Mie a Mie" width="64" height="64">
+        <span class="brand-text-wrap">
           <span class="brand-text">Mie a Mie Rouen</span>
-        </a>
-        <p>Composez votre plat: salade, wrap, panini, pita.</p>
-      </div>
-      <div class="footer-col">
-        <h3>Navigation</h3>
-        <a href="menu.html">Menu</a>
-        <a href="a-propos.html">A propos</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div class="footer-col">
-        <h3>Coordonnees</h3>
-        <p>55 rue de l'Hopital, 76000 Rouen</p>
-        <p>02 35 07 01 83</p>
-        <p>Mardi au samedi, 11h-19h</p>
-        <a href="mentions-legales.html">Mentions legales</a>
-        <a href="politique-confidentialite.html">Politique de confidentialite</a>
-      </div>
+          <span class="brand-sub">Composez votre plat</span>
+        </span>
+      </a>
+      <p>55 rue de l'Hopital, 76000 Rouen</p>
+      <p>Mardi a samedi, 11h-19h</p>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; <span id="year"></span> Mie a Mie Rouen. Tous droits reserves.</p>
+
+    <div class="footer-col">
+      <h3>Raccourcis</h3>
+      <a href="menu.html">Voir le menu</a>
+      <a href="https://www.ubereats.com/fr-en/store/mie-a-mie/2T7UGu6HS8WA2FnkQ4u_hw" target="_blank" rel="noopener noreferrer" data-track="cta_ubereats_click">Commander Uber Eats</a>
+      <a href="https://deliveroo.fr/fr/menu/rouen/rouen-vieux-marche-cathedrale/mie-a-mie-55-rue-de-lhopital" target="_blank" rel="noopener noreferrer" data-track="cta_deliveroo_click">Commander Deliveroo</a>
+      <a href="tel:+33235070183" data-track="cta_call_click">Appeler: 02 35 07 01 83</a>
     </div>
-  </footer>
+
+    <div class="footer-col">
+      <h3>Infos</h3>
+      <a href="a-propos.html">A propos</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="mentions-legales.html">Mentions legales</a>
+      <a href="politique-confidentialite.html">Politique de confidentialite</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; <span id="year"></span> Mie a Mie Rouen. Tous droits reserves.</p>
+  </div>
+</footer>
 
 
   <script src="assets/js/analytics-config.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
-
 

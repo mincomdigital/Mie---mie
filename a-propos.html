@@ -3,38 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0d12">
   <title>A propos | Mie a Mie Rouen</title>
   <meta name="description" content="Mie a Mie Rouen: concept de composition, positionnement local et services sur place, a emporter, livraison.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="A propos | Mie a Mie Rouen">
   <meta property="og:description" content="Le concept Mie a Mie Rouen depuis 2023.">
-  <meta property="og:image" content="assets/img/restaurant-front.svg">
+  <meta property="og:image" content="assets/img/mie-a-mie-facade.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
   <header class="site-header">
-    <div class="container nav-shell">
-      <a class="brand" href="index.html" aria-label="Mie a Mie accueil">
-        <span class="brand-mark">M</span>
+  <div class="container app-topbar">
+    <a class="brand" href="index.html" aria-label="Mie a Mie accueil">
+      <img class="brand-logo" src="assets/img/logo-mie-a-mie.png" alt="Logo Mie a Mie" width="64" height="64">
+      <span class="brand-text-wrap">
         <span class="brand-text">Mie a Mie Rouen</span>
-      </a>
+        <span class="brand-sub">Street food composee</span>
+      </span>
+    </a>
 
+    <div class="topbar-actions">
+      <a class="btn btn-primary compact" href="https://www.ubereats.com/fr-en/store/mie-a-mie/2T7UGu6HS8WA2FnkQ4u_hw" target="_blank" rel="noopener noreferrer" data-track="cta_ubereats_click">Commander</a>
       <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Ouvrir le menu">
         <span></span><span></span><span></span>
       </button>
-
-      <nav id="site-nav" class="site-nav">
-        <a href="index.html">Accueil</a>
-        <a href="menu.html">Menu</a>
-        <a href="a-propos.html">A propos</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-
-      <a class="btn btn-primary header-cta" href="https://www.ubereats.com/fr-en/store/mie-a-mie/2T7UGu6HS8WA2FnkQ4u_hw" target="_blank" rel="noopener noreferrer" data-track="cta_ubereats_click">Commander</a>
     </div>
-  </header>
+  </div>
+
+  <div class="container">
+    <nav id="site-nav" class="site-nav" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="menu.html">Menu</a>
+      <a href="a-propos.html">A propos</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<nav class="mobile-tabbar" aria-label="Navigation mobile">
+  <a href="index.html">Accueil</a>
+  <a href="menu.html">Menu</a>
+  <a href="contact.html">Contact</a>
+</nav>
 
 
   <main>
@@ -42,10 +55,10 @@
       <div class="container page-hero-shell">
         <div class="reveal">
           <p class="kicker">Depuis 2023</p>
-          <h1>Un restaurant de composition ancre a Rouen</h1>
+          <h1>Mie a Mie, street food composee a Rouen</h1>
           <p>
-            Mie a Mie propose une cuisine street-food personnalisable:
-            vous composez votre assiette selon votre faim et vos preferences.
+            Le concept est simple: chacun compose son plat avec une base,
+            des ingredients frais et des sauces selon ses envies.
           </p>
           <div class="badge-row">
             <span class="badge">Sur place</span>
@@ -54,7 +67,7 @@
           </div>
         </div>
         <figure class="page-hero-image reveal delay-1">
-          <img src="assets/img/restaurant-front.svg" alt="Facade placeholder du restaurant" width="1200" height="800" loading="lazy">
+          <img src="assets/img/mie-a-mie-facade.jpg" alt="Facade Mie a Mie Rouen" width="1024" height="768">
         </figure>
       </div>
     </section>
@@ -62,100 +75,69 @@
     <section class="section-pad section-alt">
       <div class="container grid-3">
         <article class="card reveal">
-          <h3>Concept simple</h3>
-          <p>Vous choisissez la base puis vos ingredients pour un repas compose a la carte.</p>
+          <h3>Compose minute</h3>
+          <p>Une carte flexible pour s'adapter a chaque profil et chaque appetit.</p>
         </article>
         <article class="card reveal delay-1">
-          <h3>Rythme urbain</h3>
-          <p>Format pense pour les pauses dej rapides sans sacrifier la personnalisation.</p>
+          <h3>Pause efficace</h3>
+          <p>Un service pense pour les rythmes urbains, sans sacrifier la personnalisation.</p>
         </article>
         <article class="card reveal delay-2">
-          <h3>Canaux multiples</h3>
-          <p>Disponible sur place, a emporter et via plateformes de livraison.</p>
+          <h3>Ambiance locale</h3>
+          <p>Une adresse rouennaise ancree dans son quartier.</p>
         </article>
       </div>
     </section>
 
     <section class="section-pad">
-      <div class="container grid-2">
-        <article class="card reveal">
-          <p class="kicker">Positionnement local</p>
-          <h2>Au coeur de Rouen</h2>
-          <p>
-            Situe au 55 rue de l'Hopital, le restaurant est facilement accessible
-            pour les actifs, etudiants et visiteurs du centre-ville.
-          </p>
-          <p>
-            Horaires officiels de reference (au 19 mars 2026): mardi a samedi, 11h-19h.
-          </p>
-        </article>
-        <figure class="page-hero-image reveal delay-1">
-          <img src="assets/img/rouen-map.svg" alt="Carte placeholder de Rouen" width="1200" height="800" loading="lazy">
-        </figure>
-      </div>
-    </section>
-
-    <section class="section-pad">
-      <div class="container">
-        <article class="cta-banner reveal">
-          <div>
-            <p class="kicker">Passer commande</p>
-            <h2>Choisissez votre canal prefere</h2>
-            <p>Commande immediate par telephone ou livraison via applications.</p>
-          </div>
-          <div class="icon-links">
-            <a class="icon-link" href="tel:+33235070183" data-track="cta_call_click">
-              <span class="label">Appeler le restaurant</span>
-              <span class="hint">02 35 07 01 83</span>
-            </a>
-            <a class="icon-link" href="https://www.ubereats.com/fr-en/store/mie-a-mie/2T7UGu6HS8WA2FnkQ4u_hw" target="_blank" rel="noopener noreferrer" data-track="cta_ubereats_click">
-              <span class="label">Commander sur Uber Eats</span>
-              <span class="hint">Livraison</span>
-            </a>
-            <a class="icon-link" href="https://deliveroo.fr/fr/menu/rouen/rouen-vieux-marche-cathedrale/mie-a-mie-55-rue-de-lhopital" target="_blank" rel="noopener noreferrer" data-track="cta_deliveroo_click">
-              <span class="label">Commander sur Deliveroo</span>
-              <span class="hint">Livraison</span>
-            </a>
-          </div>
-        </article>
+      <div class="container photo-strip reveal">
+        <img src="assets/img/mie-a-mie-facade-cropped.jpg" alt="Enseigne Mie a Mie" width="1024" height="494" loading="lazy">
+        <img src="assets/img/mie-a-mie-preparation.jpg" alt="Preparation en cuisine" width="1024" height="683" loading="lazy">
+        <img src="assets/img/mie-a-mie-terrasse.jpg" alt="Terrasse Mie a Mie" width="1024" height="686" loading="lazy">
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="footer-col">
-        <a class="brand" href="index.html">
-          <span class="brand-mark">M</span>
+  <div class="container footer-grid">
+    <div class="footer-col">
+      <a class="brand" href="index.html" aria-label="Mie a Mie accueil">
+        <img class="brand-logo" src="assets/img/logo-mie-a-mie.png" alt="Logo Mie a Mie" width="64" height="64">
+        <span class="brand-text-wrap">
           <span class="brand-text">Mie a Mie Rouen</span>
-        </a>
-        <p>Composez votre plat: salade, wrap, panini, pita.</p>
-      </div>
-      <div class="footer-col">
-        <h3>Navigation</h3>
-        <a href="menu.html">Menu</a>
-        <a href="a-propos.html">A propos</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div class="footer-col">
-        <h3>Coordonnees</h3>
-        <p>55 rue de l'Hopital, 76000 Rouen</p>
-        <p>02 35 07 01 83</p>
-        <p>Mardi au samedi, 11h-19h</p>
-        <a href="mentions-legales.html">Mentions legales</a>
-        <a href="politique-confidentialite.html">Politique de confidentialite</a>
-      </div>
+          <span class="brand-sub">Composez votre plat</span>
+        </span>
+      </a>
+      <p>55 rue de l'Hopital, 76000 Rouen</p>
+      <p>Mardi a samedi, 11h-19h</p>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; <span id="year"></span> Mie a Mie Rouen. Tous droits reserves.</p>
+
+    <div class="footer-col">
+      <h3>Raccourcis</h3>
+      <a href="menu.html">Voir le menu</a>
+      <a href="https://www.ubereats.com/fr-en/store/mie-a-mie/2T7UGu6HS8WA2FnkQ4u_hw" target="_blank" rel="noopener noreferrer" data-track="cta_ubereats_click">Commander Uber Eats</a>
+      <a href="https://deliveroo.fr/fr/menu/rouen/rouen-vieux-marche-cathedrale/mie-a-mie-55-rue-de-lhopital" target="_blank" rel="noopener noreferrer" data-track="cta_deliveroo_click">Commander Deliveroo</a>
+      <a href="tel:+33235070183" data-track="cta_call_click">Appeler: 02 35 07 01 83</a>
     </div>
-  </footer>
+
+    <div class="footer-col">
+      <h3>Infos</h3>
+      <a href="a-propos.html">A propos</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="mentions-legales.html">Mentions legales</a>
+      <a href="politique-confidentialite.html">Politique de confidentialite</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; <span id="year"></span> Mie a Mie Rouen. Tous droits reserves.</p>
+  </div>
+</footer>
 
 
   <script src="assets/js/analytics-config.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
-
 

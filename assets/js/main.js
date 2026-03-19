@@ -2,33 +2,36 @@
 const siteNav = document.querySelector("#site-nav");
 
 if (navToggle && siteNav) {
-  // Gestion du menu mobile.
+  // Ouverture/fermeture du menu mobile principal.
   navToggle.addEventListener("click", () => {
     const isOpen = siteNav.classList.toggle("open");
     navToggle.setAttribute("aria-expanded", String(isOpen));
   });
 
-  // Ferme le menu mobile apres selection d'un lien.
+  // Fermeture automatique apres clic sur un lien de navigation.
   siteNav.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
       siteNav.classList.remove("open");
       navToggle.setAttribute("aria-expanded", "false");
     });
   });
+}
 
-  // Active automatiquement le lien de la page courante.
-  const currentPath = window.location.pathname.split("/").pop() || "index.html";
-  siteNav.querySelectorAll("a").forEach((link) => {
+const setActiveNavLink = () => {
+  const currentPath = (window.location.pathname.split("/").pop() || "index.html").toLowerCase();
+  document.querySelectorAll("#site-nav a, .mobile-tabbar a").forEach((link) => {
     const target = String(link.getAttribute("href") || "").toLowerCase();
-    if (target === currentPath.toLowerCase()) {
+    if (target === currentPath) {
       link.classList.add("active");
     }
   });
-}
+};
+
+setActiveNavLink();
 
 const revealElements = document.querySelectorAll(".reveal");
 if ("IntersectionObserver" in window && revealElements.length) {
-  // Animation d'apparition progressive pour alleger le rendu initial.
+  // Revele les blocs au scroll pour un rendu plus progressif.
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -67,7 +70,7 @@ const gaId = String(analyticsConfig.gaMeasurementId || "").trim();
 const gaEnabled = Boolean(analyticsConfig.enabled) && gaId.length > 0;
 
 const ensureAnalytics = () => {
-  // Aucun tracking si la configuration GA n'est pas activee.
+  // Le tracking n'est active que si la config GA est explicite.
   if (!gaEnabled) return false;
   if (!window.dataLayer) window.dataLayer = [];
 
@@ -87,9 +90,7 @@ const ensureAnalytics = () => {
   }
 
   window.gtag("js", new Date());
-  window.gtag("config", gaId, {
-    anonymize_ip: true
-  });
+  window.gtag("config", gaId, { anonymize_ip: true });
   return true;
 };
 
